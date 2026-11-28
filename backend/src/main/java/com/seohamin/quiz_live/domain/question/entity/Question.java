@@ -136,4 +136,37 @@ public class Question {
         question.maxScore = maxScore;
         return question;
     }
+
+    // 공통 필드 수정 (유형은 변경 불가)
+    public void update(final String title, final String content, final Integer timeLimitSec) {
+        this.title = title;
+        this.content = content;
+        this.timeLimitSec = timeLimitSec;
+    }
+
+    public void updateMcq(final List<String> choices, final Integer answerIndex) {
+        requireType(QuestionType.MCQ);
+        this.choices.clear();
+        this.choices.addAll(choices);
+        this.answerIndex = answerIndex;
+    }
+
+    public void updateCode(final Set<Language> languages, final List<QuestionTestCase> testCases) {
+        requireType(QuestionType.CODE);
+        this.languages.clear();
+        this.languages.addAll(languages);
+        this.testCases.clear();
+        this.testCases.addAll(testCases);
+    }
+
+    public void updateDrawing(final Integer maxScore) {
+        requireType(QuestionType.DRAWING);
+        this.maxScore = maxScore;
+    }
+
+    private void requireType(final QuestionType expected) {
+        if (this.type != expected) {
+            throw new IllegalStateException("문제 유형이 " + expected + "가 아닙니다: " + this.type);
+        }
+    }
 }

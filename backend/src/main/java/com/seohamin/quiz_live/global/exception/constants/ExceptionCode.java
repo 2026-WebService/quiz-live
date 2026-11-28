@@ -13,7 +13,10 @@ public enum ExceptionCode {
     INVALID_ENUM_VALUE(HttpStatus.BAD_REQUEST, "올바르지 않은 Enum입니다."),
     USER_NOT_EXIST(HttpStatus.BAD_REQUEST, "유저가 존재하지 않습니다."),
     INVALID_PAGING_PARAMETER(HttpStatus.BAD_REQUEST, "페이지네이션 파라미터가 잘못되어있습니다."),
+    INVALID_QUESTION_OPTION(HttpStatus.BAD_REQUEST, "문제 유형에 필요한 값(보기·정답, 언어·테스트케이스, 배점)이 잘못되었습니다."),
+
     VIDEO_NOT_READY(HttpStatus.CONFLICT, "변환이 완료되지 않은 영상입니다."),
+    ALREADY_JOINED_COURSE(HttpStatus.CONFLICT, "이미 참여한 수업입니다."),
 
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "인증이 필요합니다."),
 
