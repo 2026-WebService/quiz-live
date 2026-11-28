@@ -90,6 +90,11 @@ public class User {
         this.profileImage = newProfileImage;
     }
 
+    //역할 변경 (회원가입 시 학생/교수 선택)
+    public void updateRole(final Role role){
+        this.role = role;
+    }
+
     //리프레시 토큰 변경
     public void updateRefreshToken(final String refreshToken){
         this.refreshToken = refreshToken;
